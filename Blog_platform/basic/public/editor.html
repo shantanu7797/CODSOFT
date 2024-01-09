@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editor - Reader</title>
+        <link rel="stylesheet" href="./styles/global.css">
+        <link rel="stylesheet" href="./styles/editor.css">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="./js/main.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <form class="banner" id="imageUploadForm" enctype="multipart/form-data">
+                <input
+                    type="file"
+                    id="imageInput"
+                    hidden
+                    name="image"
+                >
+                <!-- accept="image/*" -->
+                <button type="submit">
+                    <label for="imageInput" class="banner-upload-btn">
+                        <ion-icon name="cloud-upload-outline"></ion-icon>
+                    </label>
+                </button>
+                <div id="imagePreview"></div>
+            </form>
+            <div class="blog">
+                <textarea type="text" class="title" placeholder="Blog title..."></textarea>
+                <textarea type="text" class="article" placeholder="Start writing here..."></textarea>
+            </div>
+            <div class="blog-options">
+                <button class="btn btn-primary publish-btn">Publish</button>
+                <input
+                    type="file"
+                    accept="image/*"
+                    id="image-upload"
+                    hidden
+                >
+                <label for="image-upload" class="btn btn-secondary">Upload Image</label>
+            </div>
+        </div>
+    </body>
+</html>

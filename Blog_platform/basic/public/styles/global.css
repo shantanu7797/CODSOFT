@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Rubik:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: var(--white);
+    height: 100%;
+    overflow-x: hidden;
+}
+
+a,
+input,
+button,
+select,
+textarea,
+label,
+span,
+p {
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-family: inherit;
+    color: inherit;
+    /* user-select: none; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
+:root {
+    --primary: #3b82f6;
+    --primary-light: #dbeafe;
+    --primary-dark: #2563eb;
+    --primary-super-dark: #1d4ed8;
+
+    --secondary: #ff0000;
+    --secondary-light: #ff0000;
+    --secondary-dark: #ff0000;
+    --secondary-super-dark: #ff0000;
+
+    --white: #ffffff;
+    --white-light: #f3f4f6;
+    --white-dark: #e5e7eb;
+    --white-super-light: #f7f7f7;
+
+    --black: #000000;
+    --black-light: #111827;
+
+    --gray: #6b7280;
+    --gray-light: #d4d4d8;
+    --gray-dark: #374151;
+    --gray-super-dark: #1f2937;
+
+    --font-heading-color: #0f172a;
+    --font-pargraph: #475569;
+
+    --font-heading: "Manrope", sans-serif;
+
+    --btn-background: #e7e7e7;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    border: none;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:active {
+    transform: scale(0.95);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+    color: var(--white);
+    background-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    color: var(--primary-dark);
+    background-color: var(--primary-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-light);
+}
+
+.btn-one {
+    border: 2px solid var(--gray-light);
+    color: var(--black-light);
+    background-color: var(--white);
+}
+
+.btn-one:hover {
+    background-color: var(--white-light);
+}
+
+.btn-two {
+    color: var(--black-light);
+    background-color: var(--btn-background);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 0.4rem;
+}
+
+.btn-two:hover {
+    background-color: var(--gray-light);
+}

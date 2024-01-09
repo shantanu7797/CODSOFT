@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Blog</title>
+        <link rel="stylesheet" href="./styles/index.css">
+        <link rel="stylesheet" href="./styles/global.css">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-container">
+                <div class="logo">
+                    <h1>
+                        <a href="#">READER</a>
+                    </h1>
+                </div>
+                <div class="user-actions">
+                    <div class="notification-wrapper">
+                        <button class="notification-button" onclick="toggleDropdown()">
+                            <ion-icon name="notifications-outline"></ion-icon>
+                        </button>
+                        <div class="dropdown-content" id="dropdown">
+                            <h2 class="dropdown-heading">
+                                Notifications
+                            </h2>
+                            <div class="notifications">
+                                <p>
+                                    You have no notifications.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="user-icon">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </button>
+                    <button class="btn btn-one btn-small">
+                        <a href="./signin.html">
+                            Sign In
+                        </a>
+                    </button>
+                    <button class="btn btn-one btn-small">
+                        <a href="./editor.html">
+                            Editor
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- Main -->
+        <section class="container">
+            <!-- Feed -->
+            <div class="left-container">
+                <div>
+                    <div class="left-header">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search this blog...">
+                            <button class="search-btn">
+                                <ion-icon name="search-outline"></ion-icon>
+                            </button>
+                        </div>
+                        <div class="topics">
+                            <a href="/categories/design.html" class="topic">
+                                <span>
+                                    Design
+                                </span>
+                            </a>
+                            <a href="/categories/ux.html" class="topic">
+                                <span>
+                                    UX
+                                </span>
+                            </a>
+                            <a href="/categories/marketing.html" class="topic">
+                                <span>
+                                    Marketing
+                                </span>
+                            </a>
+                            <a href="/categories/marketing.html" class="topic">
+                                <span>
+                                    Coding
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="left-heading">
+                        <h3>
+                            Latest
+                        </h3>
+                        <button class="btn btn-one btn-small">
+                            View all
+                        </button>
+                    </div>
+                </div>
+                <!-- Blogs -->
+                <div class="blogs">
+                    <div class="blog-card">
+                        <div class="blog-content">
+                            <div class="blog-author-info">
+                                <img src="./images/boy.jpg" alt="Author Photo">
+                                <div class="author-details">
+                                    <h3>John Doe</h3>
+                                    <p>Web Developer</p>
+                                </div>
+                            </div>
+                            <div class="blog-details">
+                                <h2>
+                                    <a href="./blog/blog-one.html">
+                                        TechGeek Chronicles: Unraveling the Wonders of the Digital World
+                                    </a>
+                                </h2>
+                                <p class="meta-description">
+                                    Welcome to TechGeek Chronicles, a tech blog that delves into the fascinating realm of modern technology...
+                                </p>
+                                <div class="short-details">
+                                    <p class="category">
+                                        <a href="/categories/design.html">Design</a>
+                                    </p>
+                                    <p class="time-to-read category">4 min</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-image">
+                            <img src="./images/blog01.jpg" alt="Blog Image">
+                        </div>
+                    </div>
+                    <div class="blogs-container" id="blogsContainer">
+                        <button onclick="displayBlogs()">
+                            Fetch blogs
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Authors and Subscriptions -->
+            <div class="right-container">
+                <div class="card-container">
+                    <div class="card-content">
+                        <h4>
+                            Get unlimited access to 50+ free courses
+                        </h4>
+                        <p>
+                            Plans starting at less than $1 per week
+                        </p>
+                        <button class="btn btn-two btn-small">
+                            Start free trial
+                        </button>
+                    </div>
+                    <div class="card-image">
+                        <img src="./images/notes.png" alt="card-image">
+                    </div>
+                </div>
+                <div class="author-container">
+                    <h4 class="author-heading">
+                        Some of our authors
+                    </h4>
+                    <div class="authors">
+                        <div class="author-card">
+                            <div class="author-content">
+                                <img src="./images/boy.jpg" alt="A">
+                                <div class="author-info">
+                                    <h5>
+                                        Shreyas
+                                    </h5>
+                                    <p>
+                                        The founder & chief designer at Reader
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="btn-container">
+                                <button class="btn btn-one btn-small">
+                                    Follow
+                                </button>
+                            </div>
+                        </div>
+                        <div class="author-card">
+                            <div class="author-content">
+                                <img src="data:image/jpeg;base64,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" alt="A">
+                                <div class="author-info">
+                                    <h5>
+                                        Shreyas
+                                    </h5>
+                                    <p>
+                                        The founder & chief designer at Reader
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="btn-container">
+                                <button class="btn btn-one btn-small">
+                                    Follow
+                                </button>
+                            </div>
+                        </div>
+                        <div class="author-card">
+                            <div class="author-content">
+                                <img src="data:image/jpeg;base64,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" alt="A">
+                                <div class="author-info">
+                                    <h5>
+                                        Shreyas
+                                    </h5>
+                                    <p>
+                                        The founder & chief designer at Reader
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="btn-container">
+                                <button class="btn btn-one btn-small">
+                                    Follow
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
